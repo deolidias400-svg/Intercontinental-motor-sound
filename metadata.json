@@ -1,0 +1,6 @@
+{
+  "name": "Intercontinental Motor Sound • AI Cockpit Player V8",
+  "description": "Reprodutor multimídia inteligente e dinâmico de alta performance com telemetria automotiva, co-piloto I-CON com IA Gemini, equalização adaptativa e telão de cinema multicanal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

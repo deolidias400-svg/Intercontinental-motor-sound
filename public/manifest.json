@@ -1,0 +1,44 @@
+{
+  "id": "/",
+  "name": "Intercontinental Motor Sound • AI Cockpit V8",
+  "short_name": "MotorSound",
+  "description": "Reprodutor multimídia inteligente e dinâmico de alta performance com telemetria automotiva, co-piloto I-CON com IA Gemini e som de corrida V8.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#000b1a",
+  "background_color": "#000814",
+  "lang": "pt-BR",
+  "categories": ["music", "entertainment", "automotive"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tocar Rádio V8",
+      "short_name": "Tocar V8",
+      "description": "Iniciar reprodução da transmissão ao vivo V8",
+      "url": "/?action=play",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Conversar com Co-piloto I-CON",
+      "short_name": "I-CON Chat",
+      "description": "Abrir o chatbot inteligente de música",
+      "url": "/?action=chat",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    }
+  ]
+}

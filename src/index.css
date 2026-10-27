@@ -1,0 +1,474 @@
+@import "tailwindcss";
+
+:root {
+  --lcd-bg-base: #000b1a;
+  --lcd-bg-screen: #00183b;
+  --lcd-bg-screen-alt: #002254;
+  --lcd-cyan: #00f0ff;
+  --lcd-cyan-dim: rgba(0, 240, 255, 0.45);
+  --lcd-cyan-glow: 0 0 12px rgba(0, 240, 255, 0.7), 0 0 2px #00f0ff;
+  --lcd-blue-deep: #00112c;
+  --lcd-border: #004b99;
+  --lcd-border-glow: 0 0 20px rgba(0, 100, 255, 0.45);
+  --lcd-amber: #ffcc00;
+  --lcd-amber-glow: 0 0 12px rgba(255, 204, 0, 0.8);
+}
+
+[data-theme="volcano"] {
+  --lcd-bg-base: #1a0505;
+  --lcd-bg-screen: #330b0b;
+  --lcd-bg-screen-alt: #4d1010;
+  --lcd-cyan: #ff4433;
+  --lcd-cyan-dim: rgba(255, 68, 51, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(255, 68, 51, 0.85);
+  --lcd-border: #b91c1c;
+  --lcd-border-glow: 0 0 20px rgba(239, 68, 68, 0.45);
+}
+
+[data-theme="green-racing"] {
+  --lcd-bg-base: #021a0d;
+  --lcd-bg-screen: #06331a;
+  --lcd-bg-screen-alt: #0a4d27;
+  --lcd-cyan: #10b981;
+  --lcd-cyan-dim: rgba(16, 185, 129, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(16, 185, 129, 0.85);
+  --lcd-border: #059669;
+  --lcd-border-glow: 0 0 20px rgba(16, 185, 129, 0.45);
+}
+
+[data-theme="purple-neon"] {
+  --lcd-bg-base: #13031f;
+  --lcd-bg-screen: #260a3d;
+  --lcd-bg-screen-alt: #3c125e;
+  --lcd-cyan: #d946ef;
+  --lcd-cyan-dim: rgba(217, 70, 239, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(217, 70, 239, 0.85);
+  --lcd-border: #9333ea;
+  --lcd-border-glow: 0 0 20px rgba(168, 85, 247, 0.45);
+}
+
+[data-theme="gold-luxury"] {
+  --lcd-bg-base: #1c1402;
+  --lcd-bg-screen: #382905;
+  --lcd-bg-screen-alt: #523c08;
+  --lcd-cyan: #fbbf24;
+  --lcd-cyan-dim: rgba(251, 191, 36, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(251, 191, 36, 0.85);
+  --lcd-border: #d97706;
+  --lcd-border-glow: 0 0 20px rgba(245, 158, 11, 0.45);
+}
+
+[data-theme="synthwave-sunset"] {
+  --lcd-bg-base: #1f041b;
+  --lcd-bg-screen: #380a31;
+  --lcd-bg-screen-alt: #541147;
+  --lcd-cyan: #f43f5e;
+  --lcd-cyan-dim: rgba(244, 63, 94, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(244, 63, 94, 0.85);
+  --lcd-border: #e11d48;
+  --lcd-border-glow: 0 0 20px rgba(244, 63, 94, 0.45);
+}
+
+[data-theme="chrome"] {
+  --lcd-bg-base: #01141c;
+  --lcd-bg-screen: #032433;
+  --lcd-bg-screen-alt: #05374d;
+  --lcd-cyan: #06b6d4;
+  --lcd-cyan-dim: rgba(6, 182, 212, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(6, 182, 212, 0.85);
+  --lcd-border: #0891b2;
+  --lcd-border-glow: 0 0 20px rgba(6, 182, 212, 0.45);
+}
+
+[data-theme="dark"] {
+  --lcd-bg-base: #0a0a0d;
+  --lcd-bg-screen: #15151c;
+  --lcd-bg-screen-alt: #202029;
+  --lcd-cyan: #94a3b8;
+  --lcd-cyan-dim: rgba(148, 163, 184, 0.45);
+  --lcd-cyan-glow: 0 0 14px rgba(148, 163, 184, 0.7);
+  --lcd-border: #475569;
+  --lcd-border-glow: 0 0 20px rgba(100, 116, 139, 0.35);
+}
+
+body {
+  background-color: #000814;
+  background-image: 
+    radial-gradient(circle at 50% 20%, #001f4d 0%, #000c1e 60%, #00050d 100%),
+    linear-gradient(rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  font-family: 'Share Tech Mono', 'Orbitron', monospace;
+  color: #cbebff;
+  min-height: 100vh;
+}
+
+.font-mono-tech {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.font-display {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* --- BLUE LCD COMPONENT CASING & SCREENS --- */
+.blue-lcd-casing {
+  background: linear-gradient(180deg, var(--lcd-bg-base, #001026) 0%, #000814 100%);
+  border: 2px solid var(--lcd-border, #003b7a);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.95),
+    var(--lcd-border-glow, 0 0 30px rgba(0, 80, 200, 0.2)),
+    inset 0 1px 1px var(--lcd-cyan-dim, rgba(0, 240, 255, 0.2));
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Individual Blue LCD Screen Box */
+.blue-lcd-screen {
+  background: linear-gradient(180deg, var(--lcd-bg-screen, #001f47) 0%, var(--lcd-bg-screen-alt, #001533) 50%, var(--lcd-bg-base, #000e24) 100%);
+  border: 2px solid var(--lcd-border, #005bb5);
+  box-shadow: 
+    inset 0 0 20px var(--lcd-cyan-dim, rgba(0, 140, 255, 0.3)),
+    inset 0 3px 6px rgba(0, 0, 0, 0.8),
+    var(--lcd-border-glow, 0 4px 12px rgba(0, 0, 0, 0.7));
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Pixel Scanline Overlay on Blue LCD */
+.blue-lcd-screen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 240, 255, 0.03) 0px,
+    rgba(0, 240, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Subtle top reflection glare across glass */
+.blue-lcd-screen::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 11;
+}
+
+/* LCD Header tag */
+.lcd-header-badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--lcd-cyan, #00f0ff);
+  text-shadow: var(--lcd-cyan-glow, 0 0 8px rgba(0, 240, 255, 0.8));
+  border-bottom: 1px solid var(--lcd-cyan-dim, rgba(0, 240, 255, 0.2));
+  padding-bottom: 4px;
+}
+
+/* Glowing LCD Typography */
+.lcd-text-cyan {
+  color: var(--lcd-cyan, #00f0ff);
+  text-shadow: var(--lcd-cyan-glow, 0 0 10px rgba(0, 240, 255, 0.75));
+}
+
+.lcd-text-white {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 3px #00f0ff;
+}
+
+.lcd-text-amber {
+  color: #ffcc00;
+  text-shadow: 0 0 12px rgba(255, 204, 0, 0.8), 0 0 3px #ffaa00;
+}
+
+.lcd-text-red {
+  color: #ff3344;
+  text-shadow: 0 0 12px rgba(255, 50, 70, 0.8);
+}
+
+/* --- TURBOCHARGER THERMAL HEAT SATURATION (NITRO MODE) --- */
+.thermal-saturated-screen {
+  background: linear-gradient(180deg, #2c0505 0%, #180202 50%, #0a0101 100%) !important;
+  border-color: #ef4444 !important;
+  box-shadow: 
+    inset 0 0 25px rgba(239, 68, 68, 0.45),
+    inset 0 3px 6px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(220, 38, 38, 0.55) !important;
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.thermal-saturated-panel {
+  background: rgba(36, 5, 5, 0.95) !important;
+  border-color: #b91c1c !important;
+  box-shadow: 
+    inset 0 0 20px rgba(239, 68, 68, 0.35),
+    0 0 20px rgba(220, 38, 38, 0.4) !important;
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.lcd-text-thermal {
+  color: #ff3b30;
+  text-shadow: 0 0 14px rgba(255, 59, 48, 0.95), 0 0 4px #ff9500;
+}
+
+.lcd-header-badge-thermal {
+  color: #ff4d4d !important;
+  text-shadow: 0 0 12px rgba(255, 77, 77, 0.9), 0 0 3px #ff2200 !important;
+  border-bottom-color: rgba(255, 77, 77, 0.45) !important;
+  transition: all 0.7s ease !important;
+}
+
+.lcd-text-green {
+  color: #39ff14;
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.8);
+}
+
+/* --- RETRO VINTAGE LIGHT GREEN AUTOMOTIVE LCD PANEL --- */
+.green-lcd-frame {
+  background: linear-gradient(180deg, #182218 0%, #0d160d 50%, #080d08 100%);
+  border: 2px solid #2e442e;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.9),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 0 15px rgba(60, 120, 60, 0.25);
+  border-radius: 14px;
+  position: relative;
+}
+
+/* Light Green LCD Screen Surface */
+.green-lcd-display {
+  background: linear-gradient(180deg, #9fc68a 0%, #8eb579 50%, #7da468 100%);
+  border: 2px solid #5a7d47;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.45),
+    inset 0 0 15px rgba(50, 80, 40, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  color: #0d170d;
+  transition: all 0.3s ease;
+}
+
+/* Casio Indiglo / Backlight Glow Mode */
+.green-lcd-display.indiglo-active {
+  background: linear-gradient(180deg, #8fe8b4 0%, #76dba0 50%, #60ce8e 100%);
+  border-color: #3bb36f;
+  box-shadow: 
+    inset 0 0 25px rgba(40, 160, 90, 0.45),
+    0 0 20px rgba(80, 220, 130, 0.5),
+    inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Retro Matrix Micro-Grid */
+.green-lcd-display::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* LCD Glass Specular Reflection */
+.green-lcd-display::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Crisp LCD Black Characters */
+.green-lcd-char {
+  color: #0d170d;
+  text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.15);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.green-lcd-char-dim {
+  color: rgba(13, 23, 13, 0.45);
+}
+
+.green-lcd-btn {
+  background: linear-gradient(180deg, #223022 0%, #152015 100%);
+  border: 1px solid #3c543c;
+  color: #8eb579;
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease;
+}
+
+.green-lcd-btn:hover {
+  background: linear-gradient(180deg, #2d402d 0%, #1c2a1c 100%);
+  border-color: #5a7d47;
+  color: #b0dba0;
+  transform: translateY(-1px);
+}
+
+/* --- ELECTRONIC MARQUEE TICKER (LETREIRO ELETRÔNICO COM LETRAS PRETAS DA ESQUERDA PARA A DIREITA) --- */
+@keyframes marquee-ltr-loop {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr-loop 16s linear infinite;
+}
+
+.animate-marquee-ltr-slow {
+  animation: marquee-ltr-loop 24s linear infinite;
+}
+
+.animate-marquee-ltr-fast {
+  animation: marquee-ltr-loop 10s linear infinite;
+}
+
+.electronic-marquee-amber {
+  background: linear-gradient(180deg, #ffd93b 0%, #ffbe0a 50%, #e6a500 100%);
+  border-color: #b38600;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(255, 190, 10, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.electronic-marquee-lime {
+  background: linear-gradient(180deg, #b9f73a 0%, #9fe419 50%, #7ec209 100%);
+  border-color: #5c9402;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(160, 230, 25, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.electronic-marquee-cyan {
+  background: linear-gradient(180deg, #66f1ff 0%, #15d5ec 50%, #08b0c5 100%);
+  border-color: #037c8b;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(21, 213, 236, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.led-pixel-grid {
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.12) 1.2px, transparent 1.2px),
+    radial-gradient(rgba(0, 0, 0, 0.08) 1.2px, transparent 1.2px);
+  background-size: 6px 6px;
+  background-position: 0 0, 3px 3px;
+}
+
+/* Buttons style for Blue LCD Cockpit */
+.btn-lcd-blue {
+  background: linear-gradient(180deg, #002b66 0%, #001a40 100%);
+  border: 1px solid #0077e6;
+  color: #00f0ff;
+  font-family: 'Share Tech Mono', monospace;
+  text-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease;
+}
+
+.btn-lcd-blue:hover {
+  background: linear-gradient(180deg, #003d8f 0%, #002254 100%);
+  border-color: #00f0ff;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-lcd-blue:active {
+  transform: translateY(1px);
+}
+
+/* Custom Scrollbar for LCD Terminal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000c1e;
+  border-left: 1px solid #002855;
+}
+::-webkit-scrollbar-thumb {
+  background: #005bb5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Robot Keyframes */
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+.robot-floating {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes pulseCore {
+  from { transform: translateX(-50%) scale(0.85); opacity: 0.7; }
+  to { transform: translateX(-50%) scale(1.15); opacity: 1; }
+}
+
+.robot-core-pulse {
+  animation: pulseCore 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes danceRobot {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.robot-dancing {
+  animation: danceRobot 0.28s infinite alternate ease-in-out;
+}
+
+@keyframes blinkEyes {
+  0%, 95%, 100% { transform: scaleY(1); }
+  97.5% { transform: scaleY(0.08); }
+}
+
+.robot-eye-blink {
+  animation: blinkEyes 4.5s infinite;
+}
